@@ -1,0 +1,14 @@
+CHIP USR {
+    IN s0,s1,m[4],S1,S2;
+    OUT f[4];
+
+    PARTS:
+        DFF(in=w4,out=f[3],out=o1);
+        DFF(in=w3,out=f[2],out=o2);
+        DFF(in=w2,out=f[1],out=o3);
+        DFF(in=w1,out=f[0],out=o4);
+        FourOneMuxWith2(D0=o1,D1=S1,D2=o2,D3=m[3],Se0=s0,Se1=s1,out=w4);
+        FourOneMuxWith2(D0=o2,D1=o1,D2=o3,D3=m[2],Se0=s0,Se1=s1,out=w3);
+        FourOneMuxWith2(D0=o3,D1=o2,D2=o4,D3=m[1],Se0=s0,Se1=s1,out=w2);
+        FourOneMuxWith2(D0=o4,D1=o3,D2=S2,D3=m[0],Se0=s0,Se1=s1,out=w1);
+}

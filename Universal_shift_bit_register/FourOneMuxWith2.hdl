@@ -1,0 +1,8 @@
+CHIP FourOneMuxWith2 {
+     IN D0, D1, D2, D3, Se1 ,Se0;
+     OUT out;
+     PARTS:
+         TwoOneMux(I0=D0,I1=D1,S0=Se0,Y=Y0);
+         TwoOneMux(I0=D2,I1=D3,S0=Se0,Y=Y1);
+         TwoOneMux(I0=Y0,I1=Y1,S0=Se1,Y=out);
+}

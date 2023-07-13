@@ -1,0 +1,9 @@
+CHIP TwoOneMux {
+     IN I0, I1, S0;
+     OUT Y;
+     PARTS:
+         Not(in=S0,out=notS0);
+         And(a=notS0, b=I0, out=w1);
+         And(a=S0, b=I1, out=w2);
+         Or(a=w1, b=w2, out=Y);
+}
